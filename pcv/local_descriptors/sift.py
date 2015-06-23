@@ -36,12 +36,11 @@ def read_features_from_file(filename, desc_dim=132):
     Read feature properties and return in matrix form.
     desc_dim = 132.  This is the first 4 dimensions correspond to
     location and scale, the last 128 dimensions correspond to the sift
-    descriptor
+    descriptor.  A total of 132 dimensions
     """
-
     f = np.loadtxt(filename)
 
-    if f.shape[1] != desc_dim:
+    if f.shape[0] == 0:
         f = np.zeros((1, desc_dim))
         print filename
     return f[:, :4], f[:, 4:]  # feature locations, descriptors
