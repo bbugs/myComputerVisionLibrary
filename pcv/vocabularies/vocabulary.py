@@ -71,6 +71,19 @@ class Vocabulary(object):
         # self.trainingdata = featurefiles
 
 
+
+    def train_batch(self, descriptors, k=100, subsampling=10):
+        """(np array)
+        Train on a full bath of dsift or sift descriptors
+        """
+        print "computing kmeans"
+        self.voc, distortion = vq.kmeans(descriptors[::subsampling, :], k, 1)
+        self.nbr_words = self.voc.shape[0]
+
+
+
+
+
     def project(self, descriptors):
         """(np_array) -> (list, np_array)
         Input: Sift Descriptors for one image

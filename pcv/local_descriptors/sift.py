@@ -38,6 +38,8 @@ def read_features_from_file(filename, desc_dim=132):
     location and scale, the last 128 dimensions correspond to the sift
     descriptor.  A total of 132 dimensions
     """
+
+    print filename
     f = np.loadtxt(filename)
 
     if f.shape[0] == 0:
@@ -198,7 +200,7 @@ if __name__ == '__main__':
     #
 
     #dress_dir = '../data/dress_sample/'
-    dress_dir = '../../Amazon/scripts/dresses/data/images/Bridesmaid Dresses/'
+    dress_dir = '/Users/susanaparis/Documents/Belgium/IMAGES_plus_TEXT/DATASETS/dress_attributes/data/images/BridesmaidDresses/'
     dresses = [f for f in os.listdir(dress_dir) if not f.startswith('.')]
     for dress in dresses:
         imname = dress_dir + '%s' % dress
